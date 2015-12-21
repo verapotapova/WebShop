@@ -9,9 +9,9 @@
      </head>
      <body>
      	
-     	<form action="PHPMailer.php" name="FeedBack" method="post">
+     	<form action="?type=10" name="FeedBack" method="post">
      		
-     		<textarea name="message" rows="7" cols="40" placeholder="сообщение"><?=$_POST ["message"]?></textarea>
+     		<textarea name="message" rows="7" cols="40" placeholder="сообщение"></textarea>
      		<br />
      		<button type="submit" name="send">Отправить</button>
      	</form>
