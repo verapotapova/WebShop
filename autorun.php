@@ -43,28 +43,7 @@ else
 
 include ("items.php");
 include ("cart.php");
-switch($type) {
-    case 4:
-    addToCart($id);
-    break;
-    case 5:
-        freeCart();
-        header("location: http://" . $_SERVER['HTTP_HOST']);
-        break;
-    case 6:
-    freeCart();
-    break;
-    case 7:
-        deleteOneFromCart($id);
-        header("location: http://" . $_SERVER['HTTP_HOST'] . "?type=4");
-        break;
-    case 8 :
-        deleteItemFromCart($id);
-        header("location: http://" . $_SERVER['HTTP_HOST'] . "?type=4");
-        break;
 
-
-}
 if( isset( $_SESSION['cart'] ) )
 {
     $cartSum =0 ;
@@ -80,4 +59,34 @@ else
 {
     $cartSum = 0 ;
     $cartCount = 0;
+}
+
+
+switch($type) {
+    case 4:
+    addToCart($id);
+    break;
+    case 5:
+        freeCart();
+        header("location: http://" . $_SERVER['HTTP_HOST']);
+        break;
+    case 6:
+    include( "cart_out_mail.php" );
+    include( "sendmail.php" );
+    
+    sendMail('vera_potapova_95@mail.ru', $cartOut  , 'Информация по заказку');
+    freeCart();  
+    
+    freeCart();
+    break;
+    case 7:
+        deleteOneFromCart($id);
+        header("location: http://" . $_SERVER['HTTP_HOST'] . "?type=4");
+        break;
+    case 8 :
+        deleteItemFromCart($id);
+        header("location: http://" . $_SERVER['HTTP_HOST'] . "?type=4");
+        break;
+
+
 }

@@ -10,7 +10,10 @@ $categoryItems = getCategory();
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<title>ShopAround</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+	<link rel="shortcut icon" href="css/images/favicon1.ico" type="image/x-icon">
 	<!--[if lte IE 6]><link rel="stylesheet" href="css/ie6.css" type="text/css" media="all" /><![endif]-->
+	<meta name="keywwords" content="Shop Around - Great free html template for on-line shop. Use it as a start point for your on line business. The template can be easily implemented in many open source E-commerce platforms" />
+	<meta name="description" content="Shop Around - Great free html template for on-line shop. Use it as a start point for your on line business. The template can be easily implemented in many open source E-commerce platforms" />
 </head>
 <body>
 	
@@ -71,7 +74,7 @@ $categoryItems = getCategory();
                         break;
 
                         case 6:
-                        echo '<h1>Cпасибо за покупку! Ждем вас снова!';
+                            include("ordered.php");
 
                         break;
 
@@ -83,6 +86,11 @@ $categoryItems = getCategory();
                             include( "PHPMailer.php" );
                         break;
 
+                         case 11:
+                            include( "Order_processing.php" );
+                        break;
+
+  
 
                 }
 
